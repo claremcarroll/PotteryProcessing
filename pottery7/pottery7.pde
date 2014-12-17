@@ -1,11 +1,23 @@
+import de.voidplus.leapmotion.*;
+
+
+// our Leap Motion object
+LeapMotion leap;
+
+
 ArrayList<Location> locations;
 ArrayList<Location> locations2;
+ArrayList<Location> mylocations;
+ArrayList <MyShape> myshapes;
+
 
 int state;
 int counter = 0;
+int spacing = 30;
 
 void setup(){
   background(255);
+  leap = new LeapMotion(this);
   state = 1;
   size(800, 600, P3D);
   locations = new ArrayList<Location>(); 
@@ -17,7 +29,7 @@ void setup(){
 void draw() {
   
   smooth();
-  println(state);
+
   if(state == 1)
   {
     state1();
